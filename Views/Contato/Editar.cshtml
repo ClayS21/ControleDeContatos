@@ -1,5 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Editar Contatos";
+﻿@model ContatoModel
+@{
+    ViewData["Title"] = "Editar Contato";
 }
 
 <div class="text-center">
@@ -8,20 +9,23 @@
 
 </div>
 
-<form>
+<form asp-controller="Contato" asp-action="Alterar" method="post">
+
+    <input type="hidden" asp-for="Id"/>
+
     <div class="mb-3">
         <label for="nome" class="form-label">Nome</label>
-        <input type="text" class="form-control" placeholder="Digite o nome do contato">
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do contato">
     </div>
 
     <div class="mb-3">
         <label for="email" class="form-label">E-Mail</label>
-        <input type="text" class="form-control" placeholder="Digite o E-Mail">
+        <input type="text" asp-for="Email" class="form-control" placeholder="Digite o E-Mail">
     </div>
 
     <div class="mb-3">
         <label for="celular" class="form-label">Celular</label>
-        <input type="text" class="form-control" placeholder="Digite o telefone">
+        <input type="text" asp-for="Celular" class="form-control" placeholder="Digite o telefone">
     </div>
 
     <button type="submit" class="btn btn-primary">Alterar</button>
