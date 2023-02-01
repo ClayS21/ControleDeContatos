@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
+builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 var connectionString = builder.Configuration.GetConnectionString("DataBase");
 builder.Services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(options =>

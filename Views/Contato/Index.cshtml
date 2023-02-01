@@ -11,17 +11,35 @@
 
     <br />
 
-    <h1 class="display-4">Listagem de Contatos</h1>
+    @if(TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-success btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
 
-    <table class="table table-striped">
+    @if(TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+
+    <br />
+
+    <h1 class="display-4 mb-5">Listagem de Contatos</h1>
+
+    <table class="table table-striped" id="table-contatos">
 
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">E-mail</th>
-                <th scope="col">Telefone</th>
-                <th scope="col"></th>
+                <th scope="col" class="text-center">#</th>
+                <th scope="col" class="text-center">Nome</th>
+                <th scope="col" class="text-center">E-mail</th>
+                <th scope="col" class="text-center">Telefone</th>
+                <th scope="col" class="text-center"></th>
             </tr>
         </thead>
         <tbody>
@@ -29,7 +47,7 @@
             {
                 foreach(ContatoModel contato in Model)
                 {
-                    <tr>
+                    <tr class="align-middle">
                         <th scope="row">@contato.Id</th>
                         <td>@contato.Nome</td>
                         <td>@contato.Email</td>
